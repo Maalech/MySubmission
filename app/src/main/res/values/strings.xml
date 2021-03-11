@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">My Submission</string>
+    <string name="app_name"></string>
+    <string name="Detail">Detail</string>
+    <string name="About">About</string>
+    <string name="Home">Home Page</string>
+    <string name="prince_name">Prince Name</string>
+    <string name="detail">Detail</string>
 </resources>
