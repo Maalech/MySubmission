@@ -1,12 +1,11 @@
 package com.example.mysubmission
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -21,6 +20,7 @@ class CardViewPrince(private val listPrince: ArrayList<Prince>) : RecyclerView.A
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_cardview_prince, parent, false)
         return CardViewViewHolder(view)
+
     }
 
     override fun getItemCount(): Int {
@@ -35,6 +35,14 @@ class CardViewPrince(private val listPrince: ArrayList<Prince>) : RecyclerView.A
             .into(holder.imgPhoto)
         holder.tvName.text = prince.name
         holder.tvDetail.text = prince.detail
-        holder.itemView.setOnClickListener { Toast.makeText(holder.itemView.context, "You've Chosen " + listPrince[holder.adapterPosition].name + ", Great Choice Mortal!", Toast.LENGTH_SHORT).show() }
+        holder.itemView.setOnClickListener{
+            val activity = holder.itemView.context
+            val detailIntent = Intent(activity, PrinceDetail::class.java)
+            detailIntent.putExtra("photo",prince.photo)
+            detailIntent.putExtra("name",prince.name)
+            detailIntent.putExtra("detail",prince.detail)
+            activity.startActivity(detailIntent)
+        }
+
     }
 }

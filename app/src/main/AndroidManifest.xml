@@ -11,6 +11,7 @@
         android:theme="@style/Theme.MySubmission">
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".About"></activity>
+        <activity android:name=".PrinceDetail"></activity>
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
